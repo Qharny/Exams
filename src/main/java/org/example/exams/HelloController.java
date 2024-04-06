@@ -94,7 +94,10 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // get the total number of characters in the file
-        labelArea.setText("Characters Types: " );
+        txtArea.textProperty().addListener((observable, oldValue, newValue) -> {
+            labelArea.setText("Characters Types: " + newValue.length());
+        });
+
 
     }
 }
