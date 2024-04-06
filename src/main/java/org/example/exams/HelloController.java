@@ -89,6 +89,14 @@ public class HelloController implements Initializable {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
         fileChooser.showOpenDialog(null).getAbsolutePath();
 
+        if (selectedFile != null) {
+            try (PrintWriter writer = new PrintWriter(selectedFile)) {
+                writer.print(txtArea.getText()); // Write content of TextArea to the file
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override
